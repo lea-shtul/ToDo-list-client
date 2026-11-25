@@ -16,10 +16,14 @@
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+#root {
+  width: 100%;
   margin: 0;
-  max-width: none;
-  min-width: 0;
+}
+
+body {
   min-height: 100vh;
   background: linear-gradient(160deg, #eef2ff 0%, var(--bg) 60%);
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -30,25 +34,28 @@ body {
 .page {
   direction: rtl;
   display: flex;
+  align-items: center;
   justify-content: center;
+  width: 100%;
+  min-height: 100vh;
   padding: 48px 16px;
 }
 
 .card {
   width: 100%;
-  max-width: 520px;
+  max-width: 720px;
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 28px;
+  padding: 40px;
 }
 
 /* ---------- כפתורים ושדות ---------- */
 .btn {
   border: none;
   border-radius: 10px;
-  padding: 11px 18px;
-  font-size: 15px;
+  padding: 13px 22px;
+  font-size: 17px;
   font-family: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -68,8 +75,9 @@ body {
   background: transparent;
   color: var(--muted);
   border: 1px solid var(--border);
-  padding: 8px 14px;
-  font-size: 14px;
+  padding: 10px 16px;
+  font-size: 16px;
+  flex-shrink: 0;
 }
 
 .btn-ghost:hover {
@@ -80,10 +88,11 @@ body {
 .input {
   flex: 1;
   width: 100%;
-  padding: 12px 14px;
+  min-width: 0;
+  padding: 14px 16px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 17px;
   font-family: inherit;
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
@@ -99,24 +108,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 .app-header h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 32px;
 }
 
 .greeting {
   margin: 4px 0 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
 }
 
 .add-form {
   display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .todo-list {
@@ -128,8 +139,8 @@ body {
 .todo-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 6px;
+  gap: 14px;
+  padding: 14px 6px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -138,8 +149,9 @@ body {
 }
 
 .todo-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
   margin: 0;
   accent-color: var(--done);
   cursor: pointer;
@@ -147,7 +159,7 @@ body {
 
 .todo-name {
   flex: 1;
-  font-size: 15px;
+  font-size: 17px;
   word-break: break-word;
 }
 
@@ -160,7 +172,7 @@ body {
   border: none;
   background: none;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 6px;
@@ -193,43 +205,56 @@ body {
 
 .footer {
   margin: 16px 0 0;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   text-align: center;
 }
 
 /* ---------- דפי התחברות והרשמה ---------- */
 .auth-card {
-  max-width: 380px;
+  max-width: 460px;
 }
 
 .auth-card h2 {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
+  font-size: 28px;
   text-align: center;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .error {
   color: var(--danger);
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   text-align: center;
 }
 
 .switch {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
-  margin: 16px 0 0;
+  margin: 20px 0 0;
 }
 
 .switch a {
   color: var(--primary);
   text-decoration: none;
   font-weight: 600;
+}
+
+/* ---------- מסכים צרים ---------- */
+@media (max-width: 599.98px) {
+  .page {
+    padding: 16px 0;
+  }
+
+  .card {
+    max-width: none;
+    padding: 24px;
+  }
 }
